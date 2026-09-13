@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="../MartianRobot.Tests/MartianRobot.Tests.csproj" Id="79409f84-ad1b-4a1b-bcad-165c165748a4" />
+  <Project Path="MartianRobot.csproj" />
+</Solution>
