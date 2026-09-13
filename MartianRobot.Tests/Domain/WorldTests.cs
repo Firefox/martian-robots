@@ -33,7 +33,7 @@ public class WorldTests
     {
         var world = new World(5, 3);
 
-        world.HasScent(new Position(5, 3), Orientation.E)
+        world.HasScent(new Position(5, 3), Orientation.East)
             .ShouldBeFalse();
     }
 
@@ -43,9 +43,9 @@ public class WorldTests
         var world = new World(5, 3);
         var position = new Position(5, 3);
 
-        world.AddScent(position, Orientation.E);
+        world.AddScent(position, Orientation.East);
 
-        world.HasScent(position, Orientation.E).ShouldBeTrue();
+        world.HasScent(position, Orientation.East).ShouldBeTrue();
     }
 
     [Fact]
@@ -54,9 +54,9 @@ public class WorldTests
         var world = new World(5, 3);
         var position = new Position(5, 3);
 
-        world.AddScent(position, Orientation.E);
+        world.AddScent(position, Orientation.East);
 
-        world.HasScent(position, Orientation.N).ShouldBeFalse();
+        world.HasScent(position, Orientation.North).ShouldBeFalse();
     }
 
     [Fact]
@@ -64,9 +64,9 @@ public class WorldTests
     {
         var world = new World(5, 3);
 
-        world.AddScent(new Position(5, 3), Orientation.E);
+        world.AddScent(new Position(5, 3), Orientation.East);
 
-        world.HasScent(new Position(4, 3), Orientation.E).ShouldBeFalse();
+        world.HasScent(new Position(4, 3), Orientation.East).ShouldBeFalse();
     }
 
     [Fact]
@@ -75,9 +75,9 @@ public class WorldTests
         var world = new World(5, 3);
         var position = new Position(5, 3);
 
-        world.AddScent(position, Orientation.E);
-        world.AddScent(position, Orientation.E);
+        world.AddScent(position, Orientation.East);
+        world.AddScent(position, Orientation.East);
 
-        world.HasScent(position, Orientation.E).ShouldBeTrue();
+        world.HasScent(position, Orientation.East).ShouldBeTrue();
     }
 }

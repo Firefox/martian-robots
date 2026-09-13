@@ -6,10 +6,10 @@ namespace MartianRobot.Tests.Domain
     public class RobotTests
     {
         [Theory]
-        [InlineData(Orientation.N, Orientation.W)]
-        [InlineData(Orientation.W, Orientation.S)]
-        [InlineData(Orientation.S, Orientation.E)]
-        [InlineData(Orientation.E, Orientation.N)]
+        [InlineData(Orientation.North, Orientation.West)]
+        [InlineData(Orientation.West, Orientation.South)]
+        [InlineData(Orientation.South, Orientation.East)]
+        [InlineData(Orientation.East, Orientation.North)]
         public void TurnLeft_ShouldRotateCounterClockwise(Orientation initial, Orientation expected)
         {
             var robot = new Robot(new Position(1, 1), initial);
@@ -20,10 +20,10 @@ namespace MartianRobot.Tests.Domain
         }
 
         [Theory]
-        [InlineData(Orientation.N, Orientation.E)]
-        [InlineData(Orientation.E, Orientation.S)]
-        [InlineData(Orientation.S, Orientation.W)]
-        [InlineData(Orientation.W, Orientation.N)]
+        [InlineData(Orientation.North, Orientation.East)]
+        [InlineData(Orientation.East, Orientation.South)]
+        [InlineData(Orientation.South, Orientation.West)]
+        [InlineData(Orientation.West, Orientation.North)]
         public void TurnRight_ShouldRotateClockwise(Orientation initial, Orientation expected)
         {
             var robot = new Robot(new Position(1, 1), initial);
@@ -34,10 +34,10 @@ namespace MartianRobot.Tests.Domain
         }
 
         [Theory]
-        [InlineData(Orientation.N, 1, 2)]
-        [InlineData(Orientation.E, 2, 1)]
-        [InlineData(Orientation.S, 1, 0)]
-        [InlineData(Orientation.W, 0, 1)]
+        [InlineData(Orientation.North, 1, 2)]
+        [InlineData(Orientation.East, 2, 1)]
+        [InlineData(Orientation.South, 1, 0)]
+        [InlineData(Orientation.West, 0, 1)]
         public void GetForwardPosition_ShouldCalculateCorrectNextCoordinates(Orientation orientation, int expectedX, int expectedY)
         {
             var robot = new Robot(new Position(1, 1), orientation);

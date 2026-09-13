@@ -1,5 +1,5 @@
 ﻿namespace MartianRobot.Domain;
-public class World
+public class World : IEquatable<World>
 {
     private readonly HashSet<Scent> _scents = [];
     private readonly int _upperX;
@@ -11,9 +11,9 @@ public class World
         this._upperY = upperY;
     }
 
-    public bool IsWithinBounds(Position pos)
+    public bool IsWithinBounds(Position position)
     {
-        return pos.X >= 0 && pos.X <= _upperX && pos.Y >= 0 && pos.Y <= _upperY;
+        return position.X >= 0 && position.X <= _upperX && position.Y >= 0 && position.Y <= _upperY;
     }
 
     public bool HasScent(Position pos, Orientation ori)
@@ -25,4 +25,15 @@ public class World
     {
         _scents.Add(new Scent(pos, ori));
     }
+
+    public bool Equals(World? other)
+    {
+        if (other is null) return false;
+        if (ReferenceEquals(this, other)) return true;
+        return _upperX == other._upperX && _upperY == other._upperY && _scents.SetEquals(other._scents);
+    }
+
+    public override bool Equals(object? obj) => Equals(obj as World);
+
+    public override int GetHashCode() => HashCode.Combine(_upperX, _upperY);
 }
