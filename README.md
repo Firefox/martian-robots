@@ -1,4 +1,4 @@
-# Martian Robot
+# Martian Robots
 
 ## Overview
 This project is a .NET implementation of the classic Martian Robot challenge. It reads a world definition and a sequence of robot instructions, simulates each robot in turn, and produces the final position and orientation for every robot while respecting the world boundaries.
@@ -13,8 +13,7 @@ The challenge defines a rectangular world containing a set of robots. Each robot
 Rules:
 - The world is defined by its upper-right coordinates.
 - Robots are processed sequentially.
-- A robot must never leave the world.
-- If a robot attempts to move beyond the boundary from a position/direction without a scent, the robot is lost and leaves a scent at its last valid position. A subsequent robot attempting the same move from that scented position ignores the move.
+- A robot that moves beyond the world boundary is lost and leaves a scent at its last valid position. A subsequent robot attempting the same move from the scented position ignores the move.
 - The final output reports each robot's final position and heading.
 
 ## Solution Approach
